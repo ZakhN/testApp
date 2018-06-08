@@ -24,7 +24,8 @@ class App extends Component {
       {
          result = arr.filter(word=>word.type =="consumption")     
       }
-      else if (type!==false && type =="income"  ) {
+      else if (type!==false && type =="income"  )
+      {
          result = arr.filter(word => word.type == "income")     
       }
     
