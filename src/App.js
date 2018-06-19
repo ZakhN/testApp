@@ -9,12 +9,13 @@ class App extends Component {
   {
    super(props);
    this.state = TransactionArr
+   let now = new Date();
   }
 
-
+  
   sortVal = () => this.setState(state =>  state.filter(w => w.value < 1000))
   sortType = () => this.setState(state =>  state.filter(w => w.type === "income"))
-  sortDate = () => this.setState(state =>  state.filter(w => w.type = "income"))
+  sortDate = () => this.setState(state =>  state.filter(w => w.dt === (now = new Date())))
  
 
   render() {
@@ -29,7 +30,7 @@ class App extends Component {
           <td></td>
           <td><Btn sortType ="value" toDoMeth={this.sortVal  } btnName={"value"} sty = {divStyle} /></td>
           <td><Btn sortType ="type"  toDoMeth={ this.sortType}  btnName={"type"} sty = {divStyle}/></td>
-          <td><Btn sortType ="date"  toDoMeth={ this.sortDate}  btnName={"date"}sty = {divStyle}/></td>
+          <td><Btn sortType ="date"  toDoMeth={ this.sortDate}  btnName={"date"} sty = {divStyle}/></td>
           
           </tr>
           <tr>
