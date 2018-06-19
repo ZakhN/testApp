@@ -10,17 +10,27 @@ class App extends Component {
    super(props);
    this.state = TransactionArr
   }
-  printSmth = () => this.setState(state => { return state.filter(w => w.value < 1000) } )
+
+
+  sortVal = () => this.setState(state =>  state.filter(w => w.value < 1000))
+  sortType = () => this.setState(state =>  state.filter(w => w.type === "income"))
+  sortDate = () => this.setState(state =>  state.filter(w => w.type = "income"))
+ 
 
   render() {
+    const divStyle = 
+    {
+      color: 'blue'
+    };
     return (
       <div className="App">
         <table border = "1" cellSpacing="0" >
           <tr>
-          <td><Btn sortType ="type" toDoMeth={this.printSmth} /></td>
-          <td><Btn sortType ="value"/></td>
-          <td><Btn sortType ="type"/></td>
-          <td><Btn sortType ="type"/></td>
+          <td></td>
+          <td><Btn sortType ="value" toDoMeth={this.sortVal  } btnName={"value"} sty = {divStyle} /></td>
+          <td><Btn sortType ="type"  toDoMeth={ this.sortType}  btnName={"type"} sty = {divStyle}/></td>
+          <td><Btn sortType ="date"  toDoMeth={ this.sortDate}  btnName={"date"}sty = {divStyle}/></td>
+          
           </tr>
           <tr>
            <th><p>id</p></th> 
