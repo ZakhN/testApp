@@ -5,7 +5,7 @@
 
 # testing
 /coverage
-./Bin.js
+./Bin
 
 # production
 /build
