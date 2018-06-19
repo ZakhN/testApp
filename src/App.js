@@ -10,8 +10,7 @@ class App extends Component {
    super(props);
    this.state = TransactionArr
   }
-  
-  printSmth = () => {this.setState(this.state.filter(word=>word.value > 1000))}
+  printSmth = () => this.setState(state => { return state.filter(w => w.value < 1000) } )
 
   render() {
     return (
@@ -34,5 +33,6 @@ class App extends Component {
       </div>
     )
   }     
+
 };
 export default App;
