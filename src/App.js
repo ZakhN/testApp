@@ -15,22 +15,20 @@ class App extends Component {
 
   
   
-  sortVal = () =>  this.setState(this.state.filter(w => w.value < 1000))
-  sortType = () => this.setState(state =>  state.filter(w => w.type === "income"))
-  sortDate = () => this.setState(state =>  state.filter(w => w.dt === Date ))
+  sortVal  = () => this.setState(() =>  this.state.filter(w => w.value < 1000))
+  sortType = () => this.setState(() =>  this.state.filter(w => w.type === "income"))
+  sortDate = () => this.setState(() =>  this.state.filter(w => w.dt === Date ))
  
 
   render() {
-    const divStyle = 
-    {
-      color: 'blue'
-    };
+    const divStyle = {color: 'blue'};
+    
     return (
       <div className="App">
         <table border = "1" cellSpacing="0" >
           <tr>
           <td></td>
-          <td><Btn sortType ="value" toDoMeth={this.sortVal  } btnName={"value"} sty = {divStyle} /></td>
+          <td><Btn sortType ="value" toDoMeth={ this.sortVal  } btnName={"value"} sty = {divStyle}/></td>
           <td><Btn sortType ="type"  toDoMeth={ this.sortType}  btnName={"type"} sty = {divStyle}/></td>
           <td><Btn sortType ="date"  toDoMeth={ this.sortDate}  btnName={"date"} sty = {divStyle}/></td>
           
