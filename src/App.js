@@ -1,64 +1,66 @@
 import React, { Component } from 'react';
-import sort from './transaction.js';
-import TableLine from './mainComponent.js';
 import TransactionArr from './transaction.js';
+import Btn from './Btn';
 
 
 class App extends Component {
 
+  constructor(props)
+  {
+   super(props);
+   this.state = TransactionArr
+  }
+  
+  printSmth = () => {this.setState(this.state.filter(word=>word.value > 1000))}
+
+   
+
   render() {
-
-    var result = TransactionArr 
-    
-    function sort(arr,value,type,dt) 
-    { 
-      //var result
-      var currentDate = new Date
-    
-      if( value==true)
-      {
-         result = arr.filter(word => word.value > 1000)
-      }
-    
-      if( type!==false && type == "consumption" )
-      {
-         result = arr.filter(word=>word.type =="consumption")     
-      }
-      else if (type!==false && type =="income"  )
-      {
-         result = arr.filter(word => word.type == "income")     
-      }
-    
-      if ( dt==true)
-      {
-         result = arr.filter(word => word.dt.month == currentDate.month )
-      }
-
-      //return result  
-    }
-    
-    //var TransactionArr = sort(TransactionArr) ;
+     var result = TransactionArr
     return (
       <div className="App">
         <table border = "1" cellSpacing="0" >
-          <tr><td></td>
-          <td><button onClick={()=> (console.log("asf"))}>Sort by value</button></td>
-          <td>
-          <p align="center"><button onClick={()=>{sort(result,false,"income")}}>Sort by type income</button></p>
-          <button onClick={()=>result=sort(result,false,"consumption")}>Sort by type consumption</button>
-          </td>
-          <td align="center"><button onClick={()=>{this.sort(result,false,false,true)}}>Sort by date</button></td></tr>
+          <tr>
+          <td><Btn sortType ="type" toDoMeth={this.printSmth} /></td>
+          <td><Btn sortType ="value"/></td>
+          <td><Btn sortType ="type"/></td>
+          <td><Btn sortType ="type"/></td>
+          </tr>
           <tr>
            <th><p>id</p></th> 
            <th><p>value</p> </th>
            <th><p>type</p></th> 
            <th><p>date</p></th>
           </tr>
-           <TableLine arr ={result}/>
+           {this.state.map(obj =><tr><td>{obj.id}</td><td>{obj.value}</td><td>{obj.type}</td><td>{obj.dt.toString()}</td></tr>)}
           </table>
       </div>
     )
-  }        
+  }     
+  
+  sort(arr,value,type,dt) 
+    { 
+     var result = arr
+     var currentDate = new Date
+   
+     if( value==true)
+     {
+        result = arr.filter(word => word.value > 1000)
+     }
+   
+     if( type!==false && type == "consumption" )
+     {
+        result = arr.filter(word=>word.type =="consumption")     
+     }
+     else if (type!==false && type =="income"  )
+     {
+        result = arr.filter(word => word.type == "income")     
+     }
+   
+     if ( dt==true)
+     {
+        result = arr.filter(word => word.dt.month == currentDate.month )
+     }
+    } 
 };
-
 export default App;

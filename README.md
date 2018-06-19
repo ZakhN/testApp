@@ -1,1 +1,0 @@
-<h1>Simple react web app</h1>
