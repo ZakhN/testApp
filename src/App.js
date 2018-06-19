@@ -22,16 +22,15 @@ class App extends Component {
 
   render() {
     const divStyle = {color: 'blue'};
-    
+
     return (
       <div className="App">
         <table border = "1" cellSpacing="0" >
           <tr>
           <td></td>
-          <td><Btn sortType ="value" toDoMeth={ this.sortVal  } btnName={"value"} sty = {divStyle}/></td>
-          <td><Btn sortType ="type"  toDoMeth={ this.sortType}  btnName={"type"} sty = {divStyle}/></td>
-          <td><Btn sortType ="date"  toDoMeth={ this.sortDate}  btnName={"date"} sty = {divStyle}/></td>
-          
+          <td><Btn sortType ="value" toDoMeth={ this.sortVal  } btnName={"value"}/></td>
+          <td><Btn sortType ="type"  toDoMeth={ this.sortType}  btnName={"type"} /></td>
+          <td><Btn sortType ="date"  toDoMeth={ this.sortDate}  btnName={"date"} /></td>
           </tr>
           <tr>
            <th><p>id</p></th> 
