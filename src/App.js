@@ -15,13 +15,12 @@ class App extends Component {
 
   
   
-  sortVal = () =>  this.setState(  this.state.filter(w => w.value < 1000))
+  sortVal = () =>  this.setState(this.state.filter(w => w.value < 1000))
   sortType = () => this.setState(state =>  state.filter(w => w.type === "income"))
   sortDate = () => this.setState(state =>  state.filter(w => w.dt === Date ))
  
 
   render() {
-    let now = new Date();
     const divStyle = 
     {
       color: 'blue'
