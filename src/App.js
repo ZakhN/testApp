@@ -10,13 +10,14 @@ class App extends Component {
    super(props);
    this.state = TransactionArr
    
+   
   }
 
-   
   
-  sortVal = () => this.setState(state =>  state.filter(w => w.value < 1000))
+  
+  sortVal = () =>  this.setState(  this.state.filter(w => w.value < 1000))
   sortType = () => this.setState(state =>  state.filter(w => w.type === "income"))
-  sortDate = () => this.setState(state =>  state.filter(w => w.dt === (now = new Date()).getMonth() ))
+  sortDate = () => this.setState(state =>  state.filter(w => w.dt === Date ))
  
 
   render() {
