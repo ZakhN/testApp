@@ -9,16 +9,18 @@ class App extends Component {
   {
    super(props);
    this.state = TransactionArr
-   let now = new Date();
+   
   }
 
+   
   
   sortVal = () => this.setState(state =>  state.filter(w => w.value < 1000))
   sortType = () => this.setState(state =>  state.filter(w => w.type === "income"))
-  sortDate = () => this.setState(state =>  state.filter(w => w.dt === (now = new Date())))
+  sortDate = () => this.setState(state =>  state.filter(w => w.dt === (now = new Date()).getMonth() ))
  
 
   render() {
+    let now = new Date();
     const divStyle = 
     {
       color: 'blue'
