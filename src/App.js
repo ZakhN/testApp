@@ -14,9 +14,9 @@ class App extends Component {
   
 
   sortVal  =              () => this.setState({items:  this.state.items.filter(w => w.value < 1000)})
-  sortTypeByIncome =      () => this.setState({items:  this.state.items.filter(w => w.type == "income") })
-  sortTypeByConsumption = () => this.setState({items:  this.state.items.filter(w => w.type == "consumption") })
-  sortDate =              () => this.setState({items:  this.state.items.filter(w => w.dt.getMonth() == new Date().getMonth()) })
+  sortTypeByIncome =      () => this.setState({items:  this.state.items.filter(w => w.type === "income") })
+  sortTypeByConsumption = () => this.setState({items:  this.state.items.filter(w => w.type === "consumption") })
+  sortDate =              () => this.setState({items:  this.state.items.filter(w => w.dt.getMonth() === new Date().getMonth()) })
  
 
   render() {

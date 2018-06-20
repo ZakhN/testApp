@@ -22,9 +22,9 @@ class Btn extends React.Component
         return (
             
             <div><button 
-                onPress  ={this.changeColor.bind(this)} 
+                
                 className={btn_class}
-                onClick  ={() => { this.props.toDoMeth(); }} 
+                onClick  ={() => { this.props.toDoMeth(); this.changeColor()}}
                 btnName  ={this.props.btnName}>
                 {this.props.btnName}
              </button></div>
