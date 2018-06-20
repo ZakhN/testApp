@@ -11,27 +11,27 @@ class App extends Component {
    this.state = {items:TransactionArr }
   }
 
-  //let curDate = new Date();
+  
 
-  sortVal  = () =>  this.setState({items: this.state.items.filter(w => w.value < 1000)})
-  sortTypeByIncome = () => this.setState({items:  this.state.items.filter(w => w.type == "income") })
+  sortVal  =              () => this.setState({items:  this.state.items.filter(w => w.value < 1000)})
+  sortTypeByIncome =      () => this.setState({items:  this.state.items.filter(w => w.type == "income") })
   sortTypeByConsumption = () => this.setState({items:  this.state.items.filter(w => w.type == "consumption") })
-  sortDate = () => this.setState({ items:  this.state.items.filter(w => w.dt.getMonth() == new Date().getMonth()) })
+  sortDate =              () => this.setState({items:  this.state.items.filter(w => w.dt.getMonth() == new Date().getMonth()) })
  
 
   render() {
-    const divStyle = {color: 'blue'};
+    
     return (
       <div className="App">
         <table border = "1" cellSpacing="0" >
           <tr>
           <td></td>
-          <td><Btn sortType ="value" toDoMeth={ this.sortVal  } btnName={"value"} sty = {divStyle}/></td>
+          <td><Btn sortType ="value" toDoMeth={ this.sortVal}                btnName={"value"} /></td>
           <td>
-          <Btn sortType ="type"  toDoMeth={ this.sortTypeByIncome}  btnName={"sortTypeByIncome"} sty = {divStyle}/>
-          <Btn sortType ="type"  toDoMeth={ this.sortTypeByConsumption}  btnName={"sortTypeByConsumption"} sty = {divStyle}/>
+              <Btn sortType ="type"  toDoMeth={ this.sortTypeByIncome}       btnName={"sortTypeByIncome"} />
+              <Btn sortType ="type"  toDoMeth={ this.sortTypeByConsumption}  btnName={"sortTypeByConsumption"} />
           </td>
-          <td><Btn sortType ="date"  toDoMeth={ this.sortDate}  btnName={"date"} sty = {divStyle}/></td>
+          <td><Btn sortType ="date"  toDoMeth={ this.sortDate}               btnName={"date"} /></td>
           
           </tr>
           <tr>

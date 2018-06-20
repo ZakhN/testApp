@@ -17,7 +17,7 @@ class Btn extends React.Component
     
     render()
     {   
-        let btn_class = this.state.black ? 'blackButton' : 'whiteButton';
+        let btn_class = this.state.black ? "blackButton" : "whiteButton";
         
         return (
             
