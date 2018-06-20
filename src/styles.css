@@ -1,0 +1,14 @@
+button{
+    width: 200px;
+    height: 40px;
+    margin: 15px;
+  }
+  .blackButton{
+    background-color: pink;
+    color: white;
+  }
+  
+  .whiteButton{
+    background-color: red;
+    color: black;
+  }

@@ -1,21 +1,31 @@
 import React from 'react';
+import './styles.css';
 
 class Btn extends React.Component
 {
     
     constructor(props)
     {
-        super(props);  
+        
+        super();  
+        this.state={black: true}
     }
-
+    changeColor()
+    {
+        this.setState({black: !this.state.black})
+    }
+    
     render()
     {   
-        let divStyle
+        let btn_class = this.state.black ? 'blackButton' : 'whiteButton';
+        
         return (
+            
             <div><button 
-                style = {divStyle} 
-                onClick={() => { this.props.toDoMeth();() => {divStyle = {color: 'blue'}}}} 
-                btnName={this.props.btnName}>
+                onPress  ={this.changeColor.bind(this)} 
+                className={btn_class}
+                onClick  ={() => { this.props.toDoMeth(); }} 
+                btnName  ={this.props.btnName}>
                 {this.props.btnName}
              </button></div>
             );
