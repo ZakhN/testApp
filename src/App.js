@@ -8,29 +8,28 @@ class App extends Component {
   constructor(props)
   {
    super(props);
-   this.state = TransactionArr
-   
-   
+   this.state = {items:TransactionArr }
   }
-
-  
-  
-  sortVal  = () => this.setState(() =>  this.state.filter(w => w.value < 1000))
-  sortType = () => this.setState(() =>  this.state.filter(w => w.type === "income"))
-  sortDate = () => this.setState(() =>  this.state.filter(w => w.dt === Date ))
+  sortVal  = () =>  this.setState({items: this.state.items.filter(w => w.value < 1000)})
+  sortTypeByIncome = () => this.setState({items:  this.state.items.filter(w => w.type == "income") })
+  sortTypeByConsumption = () => this.setState({items:  this.state.items.filter(w => w.type == "consumption") })
+  sortDate = () => this.setState({ items:  this.state.items.filter(w => w.dt === Date ) })
  
 
   render() {
     const divStyle = {color: 'blue'};
-
     return (
       <div className="App">
         <table border = "1" cellSpacing="0" >
           <tr>
           <td></td>
-          <td><Btn sortType ="value" toDoMeth={ this.sortVal  } btnName={"value"}/></td>
-          <td><Btn sortType ="type"  toDoMeth={ this.sortType}  btnName={"type"} /></td>
-          <td><Btn sortType ="date"  toDoMeth={ this.sortDate}  btnName={"date"} /></td>
+          <td><Btn sortType ="value" toDoMeth={ this.sortVal  } btnName={"value"} sty = {divStyle}/></td>
+          <td>
+          <Btn sortType ="type"  toDoMeth={ this.sortTypeByIncome}  btnName={"sortTypeByIncome"} sty = {divStyle}/>
+          <Btn sortType ="type"  toDoMeth={ this.sortTypeByConsumption}  btnName={"sortTypeByConsumption"} sty = {divStyle}/>
+          </td>
+          <td><Btn sortType ="date"  toDoMeth={ this.sortDate}  btnName={"date"} sty = {divStyle}/></td>
+          
           </tr>
           <tr>
            <th><p>id</p></th> 
@@ -38,7 +37,7 @@ class App extends Component {
            <th><p>type</p></th> 
            <th><p>date</p></th>
           </tr>
-           {this.state.map(obj =><tr><td>{obj.id}</td><td>{obj.value}</td><td>{obj.type}</td><td>{obj.dt.toString()}</td></tr>)}
+           {this.state.items.map(obj =><tr><td>{obj.id}</td><td>{obj.value}</td><td>{obj.type}</td><td>{obj.dt.toString()}</td></tr>)}
           </table>
       </div>
     )
