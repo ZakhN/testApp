@@ -1,6 +1,3 @@
-import React from 'react';
-
-
         var TransactionArr = 
         [
         {id:1, value:500, type:'income', dt:new Date(2018, 6, 1, 1, 10)},
@@ -15,7 +12,5 @@ import React from 'react';
         {id:10, value:999, type:'consumption', dt:new Date(2018, 6, 1, 1, 10)},
         ];  
 
-
-
-    export default TransactionArr;
+        export default TransactionArr;
     
