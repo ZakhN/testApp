@@ -55,6 +55,8 @@ class App extends Component {
     else if (this.state.inc) return elem.type =="income";
     else if (this.state.cons) return elem.type =="consumption"
     else if (this.state.date) return elem.dt.getMonth() == new Date().getMonth()
+    else if (this.state.val && this.state.inc && this.state.date) return (elem.val > 1000 && elem.dt.getMonth() == new Date().getMonth()&& elem.type == "income")
+    else if (this.state.val && this.state.cons && this.state.date) return (elem.val > 1000 && elem.dt.getMonth() == new Date().getMonth()&& elem.type == "consumption")
 
    //#region  
 /*
